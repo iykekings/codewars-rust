@@ -1,0 +1,1 @@
+Collections of challenges on codewars in Rust and their solutions
