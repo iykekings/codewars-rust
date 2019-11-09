@@ -3,7 +3,7 @@ use phone_directory::phone;
 
 fn main() {
    let phones = r#"/+1-541-754-3010 156 Alphand_St. <J Steeve>
-/* 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010;
+133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010;
 +1-541-984-3012 <P Reed> /PO Box 530; Pollocksville, NC-28573
 :+1-321-512-2222 <Paul Dive> Sequoia Alley PQ-67209
 +1-741-984-3090 <Peter Reedgrave> _Chicago
@@ -16,7 +16,7 @@ fn main() {
 <Ray Chandler> Teliman Pk. !+1-681-512-2222! AB-47209,
 <Sophia Loren> +1-421-674-8974 Bern TP-46017
 <Peter O'Brien> High Street +1-908-512-2222; CC-47209
-<Anastasia> +48-421-674-8974 Via Quirinal Roma
+<Anastasia> +1-921-512-2222 Via Quirinal Roma
 <P Salinger> Main Street, +1-098-512-2222, Denver
 <C Powel> *+19-421-674-8974 Chateau des Fosses Strasbourg F-68000
 <Bernard Deltheil> +1-498-512-2222; Mount Av.  Eldorado
@@ -46,6 +46,6 @@ fn main() {
 <Donald Drinkaw> Moon Street, +3-098-512-2222, Peterville
 "#;
 
-println!("{}", phone(phones, "2-121-544-8974"));
+assert_eq!(phone(phones, "8-421-674-8974"), "Phone => 8-421-674-8974, Name => Elizabeth Corber, Address => Via Papa Roma");
 
 }
