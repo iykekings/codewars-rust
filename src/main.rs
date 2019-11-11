@@ -1,6 +1,12 @@
-mod error_histogram;
-use error_histogram::hist2;
+mod simple_substitution;
+use simple_substitution::Cipher;
 
 fn main() {
-   assert_eq!(hist2("tpwaemuqxdmwqbqrjbeosjnejqorxdozsxnrgpgqkeihqwybzyymqeazfkyiucesxwutgszbenzvgxibxrlvmzihcb"), "u  3     ***\rw  4     ****\rx  6     ******\rz  6     ******");
+  let map1 = "abcdefghijklmnopqrstuvwxyz";
+  let map2 = "etaoinshrdlucmfwypvbgkjqxz";
+
+  let cipher = Cipher::new(map1, map2);
+  
+  println!("{}", cipher.encode("abc"));
+  println!("{}", cipher.decode("erlang"));
 }
