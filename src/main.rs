@@ -1,5 +1,5 @@
-mod simple_substitution;
-use simple_substitution::Cipher;
+mod simpler_substitution;
+use simpler_substitution::Cipher;
 
 fn main() {
   let map1 = "abcdefghijklmnopqrstuvwxyz";

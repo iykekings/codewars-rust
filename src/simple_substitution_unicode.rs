@@ -1,3 +1,6 @@
+extern crate unicode_segmentation;
+
+use unicode_segmentation::UnicodeSegmentation;
 use std::collections::HashMap;
 
 pub struct Cipher {
@@ -9,8 +12,8 @@ impl Cipher {
   pub fn new(map1: &str, map2: &str) -> Cipher {
     let mut dictx: HashMap<String, String> = HashMap::new();
     let mut dicty: HashMap<String, String> = HashMap::new();
-    let target: Vec<char> = map2.chars().collect();
-    let value: Vec<char> = map1.chars().collect();
+    let target = UnicodeSegmentation::graphemes(map2, true).collect::<Vec<&str>>();
+    let value = UnicodeSegmentation::graphemes(map1, true).collect::<Vec<&str>>();
     for i in 0..value.len() {
       dictx.insert(value[i].to_string(), target[i].to_string());
     }
@@ -20,13 +23,13 @@ impl Cipher {
     Cipher { dict1: dictx, dict2: dicty }
   }
   pub fn encode(&self, string: &str) -> String {
-    string.chars()
-      .map(|x| self.dict1.get(&x.to_string()).unwrap_or(&x.to_string()).clone())
+    UnicodeSegmentation::graphemes(string, true)
+      .map(|x| self.dict1.get(x).unwrap().clone())
       .collect::<Vec<String>>().join("")
   }
   pub fn decode(&self, string: &str) -> String {
-    string.chars()
-      .map(|x| self.dict2.get(&x.to_string()).unwrap_or(&x.to_string()).clone())
+    UnicodeSegmentation::graphemes(string, true)
+      .map(|x| self.dict2.get(x).unwrap().clone())
       .collect::<Vec<String>>().join("")
   }
 }
