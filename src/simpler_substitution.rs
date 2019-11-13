@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Cipher {
   map: Vec<(char, char)>
 }
@@ -20,12 +21,13 @@ impl Cipher {
 
 #[test]
 fn test() {
-  let map1 = "abcdefghijklmnopqrstuvwxyz";
-  let map2 = "etaoinshrdlucmfwypvbgkjqxz";
+  let map1 = "abcdefghijklmnopqrstuvwxyz🔥";
+  let map2 = "etaoinshrdlucmfwypvbgkjqxz💥";
 
   let cipher = Cipher::new(map1, map2);
   assert_eq!(cipher.encode("abc"), "eta");
   assert_eq!(cipher.encode("xyz"), "qxz");
+  assert_eq!(cipher.encode("xyz🔥"), "qxz💥");
   assert_eq!(cipher.decode("eirfg"), "aeiou");
   assert_eq!(cipher.decode("erlang"), "aikcfu");
 }

@@ -1,12 +1,11 @@
-mod simpler_substitution;
-use simpler_substitution::Cipher;
+mod simple_substitution_unicode;
+use simple_substitution_unicode::Cipher;
 
 fn main() {
   let map1 = "abcdefghijklmnopqrstuvwxyz";
   let map2 = "etaoinshrdlucmfwypvbgkjqxz";
 
   let cipher = Cipher::new(map1, map2);
-  
   println!("{}", cipher.encode("abc"));
   println!("{}", cipher.decode("erlang"));
 }
