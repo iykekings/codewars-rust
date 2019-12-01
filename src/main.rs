@@ -1,11 +1,9 @@
-mod simple_substitution_unicode;
-use simple_substitution_unicode::Cipher;
+mod meeting;
+use meeting::meeting;
 
 fn main() {
-  let map1 = "abcdefghijklmnopqrstuvwxyz";
-  let map2 = "etaoinshrdlucmfwypvbgkjqxz";
+  let ex = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
 
-  let cipher = Cipher::new(map1, map2);
-  println!("{}", cipher.encode("abc"));
-  println!("{}", cipher.decode("erlang"));
+  let result = meeting(ex);
+  println!("{}", result);
 }
