@@ -1,9 +1,10 @@
+mod error_histogram;
 mod meeting;
-use meeting::meeting;
+mod phone_directory;
+mod simple_substitution;
+mod simple_substitution_unicode;
+mod simpler_substitution;
 
 fn main() {
-  let ex = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
-
-  let result = meeting(ex);
-  println!("{}", result);
+  println!("To test all solutions: Run {}", "cargo test");
 }
